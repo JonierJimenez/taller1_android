@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -28,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //botones
         login = findViewById(R.id.btnLogin);
-        registrar = findViewById(R.id.btnReistro);
+        registrar = findViewById(R.id.btnRegistro);
 
         termycon = findViewById(R.id.idCheck);
 
@@ -63,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
 
-            case R.id.btnReistro:
+            case R.id.btnRegistro:
                 Intent i = new Intent(getApplicationContext(),RegistroActivity.class);
                 startActivity(i);
                 if (termycon.isChecked()){

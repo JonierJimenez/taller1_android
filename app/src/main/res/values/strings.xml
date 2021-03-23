@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Taller1</string>
+    
+    
+    
+    <string name="invalid_Password">Ingrese un Passwor mayor a 6 digitos</string>
+    <string name="invalid_Correo">Ingrese un correo  valido</string>
 </resources>
