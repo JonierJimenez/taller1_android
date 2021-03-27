@@ -49,12 +49,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if(User1()){
                     Toast.makeText(getApplicationContext(),"User 1" + usuario.getText().toString(),Toast.LENGTH_LONG).show();
+                    Intent i =new Intent(getApplicationContext(),HomeActivity.class);
+                    startActivity(i);
+                    finish();
                 }
                 else if(User2()){
                     Toast.makeText(getApplicationContext(),"User 2"+ usuario.getText().toString(),Toast.LENGTH_LONG).show();
+                    Intent i =new Intent(getApplicationContext(),HomeActivity.class);
+                    startActivity(i);
+                    finish();
                 }
                 else if(User3()){
                     Toast.makeText(getApplicationContext(),"User 3"+  usuario.getText().toString(),Toast.LENGTH_LONG).show();
+                    Intent i =new Intent(getApplicationContext(),HomeActivity.class);
+                    startActivity(i);
+                    finish();
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"Error credenciales",Toast.LENGTH_LONG).show();
