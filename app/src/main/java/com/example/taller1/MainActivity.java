@@ -2,7 +2,9 @@ package com.example.taller1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     EditText usuario, clave;
     Button registrar, login;
-    CheckBox termycon;
+    CheckBox termycon,recordar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +32,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         registrar = findViewById(R.id.btnRegistro);
 
         termycon = findViewById(R.id.idCheck);
+        recordar = findViewById(R.id.idCheckR);
+
 
         //botones escuchadores
         login.setOnClickListener(this);
         registrar.setOnClickListener(this);
         termycon.setOnClickListener(this);
+        recordar.setOnClickListener(this);
 
         login.setEnabled(false);//boton desactivado
-
+        cargarPreferencias();
 
 
     }
@@ -86,6 +91,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 login.setEnabled(false);
                 break;
+
+            case R.id.idCheckR:
+                guardarPreferencias();
         }
     }
 
@@ -134,5 +142,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
+
+    public void guardarPreferencias(){
+        SharedPreferences preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+
+        String nombre = usuario.getText().toString();
+        String password = clave.getText().toString();
+
+        SharedPreferences.Editor editor= preferences.edit();
+        editor.putString("user",nombre);
+        editor.putString("pass",password);
+
+        editor.commit();
+    }
+
+    public  void cargarPreferencias(){
+        SharedPreferences preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+        String user = preferences.getString("user","no hay nada");
+        String pass = preferences.getString("pass","no perra");
+
+        usuario.setText(user);
+        clave.setText(pass);
+    }
+
 
 }//fin classs
