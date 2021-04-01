@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeGeometriaActivity">
+    tools:context=".HomeGeometriaActivity"
+    android:background="@color/black">
 
     <Button
         android:id="@+id/btnGCalcular"
@@ -14,7 +15,8 @@
         android:layout_marginTop="52dp"
         android:text="Calcular"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spOpciones" />
+        app:layout_constraintTop_toBottomOf="@+id/spOpciones"
+        android:background="@drawable/bg_round"/>
 
     <Button
         android:id="@+id/btnGRegresar"
@@ -24,7 +26,8 @@
         android:layout_marginEnd="90dp"
         android:text="Regresar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spOpciones" />
+        app:layout_constraintTop_toBottomOf="@+id/spOpciones"
+        android:background="@drawable/bg_round"/>
 
     <TextView
         android:id="@+id/textView13"
@@ -133,4 +136,18 @@
         android:text="Opciones"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtX2" />
+
+    <TextView
+        android:id="@+id/textViewRespuesta"
+        android:layout_width="267dp"
+        android:layout_height="152dp"
+        android:background="@drawable/bg_round"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGCalcular"
+        app:layout_constraintVertical_bias="0.166" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -57,12 +57,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         login.setEnabled(false);//boton desactivado
         cargarPreferencias();
 
-        for (int i = 0; i < usuarios.size(); i ++){
+       /* for (int i = 0; i < usuarios.size(); i ++){
             Toast.makeText(this, "m: "+usuarios.get(i).usuario.toString(), Toast.LENGTH_SHORT).show();
         }
         for (int i = 0; i < usuarios.size(); i ++){
             Toast.makeText(this, "m: "+usuarios.get(i).password.toString(), Toast.LENGTH_SHORT).show();
-        }
+        }*/
     }
 
     @Override

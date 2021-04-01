@@ -11,11 +11,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class HomeGeometriaActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
     Button regresarG, calcularG;
     Spinner opciones;
+    TextView Respuesta;
 
     String[] arrayOpciones = { "Cuadrante", "Pendiente", "Distancia"};
     String opcionSeleccionada = "Cuadrante";
@@ -28,6 +30,7 @@ public class HomeGeometriaActivity extends AppCompatActivity implements View.OnC
 
         calcularG = findViewById(R.id.btnGCalcular);
         opciones = findViewById(R.id.spOpciones);
+        Respuesta = findViewById(R.id.textViewRespuesta);
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arrayOpciones);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         opciones.setAdapter(adapter);
@@ -89,7 +92,8 @@ public class HomeGeometriaActivity extends AppCompatActivity implements View.OnC
         ny2 = Float.parseFloat(y2.getText().toString());
 
         float distancia = (float) Math.sqrt( (nx2-nx1)*(nx2-nx1) + (ny2-ny1)*(ny2-ny1) );
-        Toast.makeText(getApplicationContext(),"distancia "+distancia,Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),"distancia "+distancia,Toast.LENGTH_LONG).show();
+        Respuesta.setText("La Distancia es: "+distancia);
     }
 
     public  void  cuadrante(){
@@ -100,30 +104,38 @@ public class HomeGeometriaActivity extends AppCompatActivity implements View.OnC
         ny2 = Float.parseFloat(y2.getText().toString());
 
         if(nx1>0 && ny1>0){
-            Toast.makeText(getApplicationContext(),"PUNTO 1 Cuadrante I ",Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),"PUNTO 1 Cuadrante I ",Toast.LENGTH_LONG).show();
+            Respuesta.setText("PUNTO 1 Cuadrante I");
         }
         else if(nx1<0 && ny1>0){
-            Toast.makeText(getApplicationContext(),"PUNTO 1 Cuadrante II ",Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),"PUNTO 1 Cuadrante II ",Toast.LENGTH_LONG).show();
+            Respuesta.setText("PUNTO 1 Cuadrante II");
         }
         else if(nx1<0 && ny1<0){
-            Toast.makeText(getApplicationContext(),"PUNTO 1 Cuadrante III ",Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),"PUNTO 1 Cuadrante III ",Toast.LENGTH_LONG).show();
+            Respuesta.setText("PUNTO 1 Cuadrante III");
         }
         else{
-            Toast.makeText(getApplicationContext(),"PUNTO 1 Cuadrante VI ",Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),"PUNTO 1 Cuadrante VI ",Toast.LENGTH_LONG).show();
+            Respuesta.setText("PUNTO 1 Cuadrante VI");
         }
 
         //CUADRANTE PUNTO 2
         if(nx2>0 && ny2>0){
             Toast.makeText(getApplicationContext(),"PUNTO 2 Cuadrante I ",Toast.LENGTH_LONG).show();
+            Respuesta.setText(Respuesta.getText()+"\nPUNTO 2 Cuadrante I");
         }
         else if(nx2<0 && ny2>0){
-            Toast.makeText(getApplicationContext(),"PUNTO 2 Cuadrante II ",Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),"PUNTO 2 Cuadrante II ",Toast.LENGTH_LONG).show();
+            Respuesta.setText(Respuesta.getText()+"\nPUNTO 2 Cuadrante II");
         }
         else if(nx2<0 && ny2<0){
-            Toast.makeText(getApplicationContext(),"PUNTO 2 Cuadrante III ",Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),"PUNTO 2 Cuadrante III ",Toast.LENGTH_LONG).show();
+            Respuesta.setText(Respuesta.getText()+"\nPUNTO 2 Cuadrante III");
         }
         else{
-            Toast.makeText(getApplicationContext(),"PUNTO 2 Cuadrante VI ",Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),"PUNTO 2 Cuadrante VI ",Toast.LENGTH_LONG).show();
+            Respuesta.setText(Respuesta.getText()+"\nPUNTO 2 Cuadrante VI");
         }
 
 
@@ -141,7 +153,8 @@ public class HomeGeometriaActivity extends AppCompatActivity implements View.OnC
         float numerador = ny2-ny1;
         float denominador= nx2-nx1;
         float Pendiente = numerador/denominador;
-        Toast.makeText(this, "La pendiente es: "+Pendiente, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "La pendiente es: "+Pendiente, Toast.LENGTH_SHORT).show();
+        Respuesta.setText("La Pendiente es: "+Pendiente);
     }
 
     public void inicializarPuntos(){

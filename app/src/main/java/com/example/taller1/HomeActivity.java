@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     ImageButton fisica,geometria,texto,regresar,ayuda;
@@ -54,10 +56,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.imgbRegresar:
                 i = new Intent(getApplicationContext(),MainActivity.class);
+                i.putExtra("bandera",1);
                 startActivity(i);
                 finish(); break;
 
-            case R.id.imgbAyuda: break;
+            case R.id.imgbAyuda:
+                Toast.makeText(this, "APP Creada por: \n Erwin cacua \n Jonier Jimenez \n Javier De Az", Toast.LENGTH_SHORT).show();
+            break;
         }
     }
 }
