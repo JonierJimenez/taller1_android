@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
@@ -13,6 +14,8 @@ import org.w3c.dom.Text;
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     ImageButton fisica,geometria,texto,regresar,ayuda;
+    String usuario;
+    TextView User;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +28,17 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         regresar = findViewById(R.id.imgbRegresar);
         ayuda = findViewById(R.id.imgbAyuda);
 
+        User=findViewById(R.id.textViewUser);
+        usuario = getIntent().getStringExtra("usuario");
+        User.setText(usuario);
+
         fisica.setOnClickListener(this);
         geometria.setOnClickListener(this);
         texto.setOnClickListener(this);
         regresar.setOnClickListener(this);
         ayuda.setOnClickListener(this);
+
+
 
     }
 

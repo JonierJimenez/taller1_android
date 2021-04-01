@@ -4,41 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFisicaActivity">
+    tools:context=".HomeFisicaActivity"
+    android:background="@color/black">
+
+    <Button
+        android:id="@+id/btnFRegresar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:text="Regresar"
+        android:textColor="#DAED1D1D"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnFVoltaje" />
+
+    <Button
+        android:id="@+id/btnFFuerza"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="8dp"
+        android:text="Fuerza"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <Button
+        android:id="@+id/btnFVelocidad"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="8dp"
+        android:text="Velocidad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnFFuerza" />
+
+    <Button
+        android:id="@+id/btnFVoltaje"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:text="Voltaje"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnFVelocidad" />
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="162dp"
-        android:layout_height="105dp"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="397dp"
-        android:layout_marginEnd="185dp"
-        android:layout_marginBottom="315dp"
+        android:layout_width="185dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="70dp"
         android:text="FISICA"
+        android:textAlignment="center"
         android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnFRegresar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="Regresar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="81dp"
-        android:layout_marginTop="139dp"
-        android:text="NACIRIS SOFIA"
-        android:textSize="36sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

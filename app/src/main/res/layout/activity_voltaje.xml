@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Voltaje">
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="voltaje"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.426"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnVoRegresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="24dp"
+        android:text="Regresar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvResulV"
+        android:background="@drawable/bg_round"/>
+
+    <EditText
+        android:id="@+id/edtR1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="91dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="110dp"
+        android:ems="10"
+        android:hint="R1"
+        android:inputType="number|numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtIntensidad" />
+
+    <EditText
+        android:id="@+id/edtR2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="89dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="112dp"
+        android:ems="10"
+        android:hint="R2"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtR1" />
+
+    <EditText
+        android:id="@+id/edtR3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="112dp"
+        android:ems="10"
+        android:hint="R3"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtR2" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+    <CheckBox
+        android:id="@+id/cbParalelo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="215dp"
+        android:text="Paralelas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <Button
+        android:id="@+id/btnCalcularV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="108dp"
+        android:text="Calcular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvResulV"
+        android:background="@drawable/bg_round"/>
+
+    <TextView
+        android:id="@+id/tvResulV"
+        android:layout_width="237dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="30dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtR3" />
+
+    <EditText
+        android:id="@+id/edtIntensidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="91dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="110dp"
+        android:ems="10"
+        android:hint="Intencidad"
+        android:inputType="number|numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cbParalelo" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="209dp"
+        android:text="Cantidad Resistencia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+</androidx.constraintlayout.widget.ConstraintLayout>
