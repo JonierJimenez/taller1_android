@@ -48,8 +48,11 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         switch (v.getId()){
             case R.id.btnGuardar:
                     if(validar.validate()){
+                        //MainActivity.usuarios.add(new Usuarios(nombre.getText().toString(),apellido.getText().toString(),correo.getText().toString(),clave.getText().toString(),sexo.getText().toString()));
+                        MainActivity.usuarios.add(new Usuarios(nombre.getText().toString(), clave.getText().toString()));
                         limpiar();
-                        Toast.makeText(this, "guardando bien", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "AGREGADO CON EXITO", Toast.LENGTH_SHORT).show();
+
                     }else{
                         Toast.makeText(this, "Ingrese una contraseña de 6 digitos", Toast.LENGTH_SHORT).show();
                     }
@@ -57,6 +60,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
             case R.id.btnRegresar:
                 Toast.makeText(this, "hola mundo regresa", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                i.putExtra("bandera",1);
                 startActivity(i);
                 finish();
                 break;

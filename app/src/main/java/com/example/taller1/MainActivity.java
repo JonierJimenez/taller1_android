@@ -12,11 +12,16 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    boolean control=false;
+    int bandera=0;
     EditText usuario, clave;
-    Button registrar, login;
+    Button registrar, login,recuperarPass;
     CheckBox termycon,recordar;
+    public static ArrayList<Usuarios> usuarios = new ArrayList<Usuarios>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +31,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         usuario =findViewById(R.id.edtUsuario);
         clave = findViewById(R.id.edtPassword);
 
+        //inicializamos usuarios iniciales
+        bandera = getIntent().getIntExtra("bandera", 0);
+        if(bandera != 1){
+            usuariosIniciales();
+        }
 
         //botones
         login = findViewById(R.id.btnLogin);
         registrar = findViewById(R.id.btnRegistro);
+        recuperarPass = findViewById(R.id.btnRecuperarPass);
 
         termycon = findViewById(R.id.idCheck);
         recordar = findViewById(R.id.idCheckR);
@@ -40,11 +51,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         registrar.setOnClickListener(this);
         termycon.setOnClickListener(this);
         recordar.setOnClickListener(this);
+        recuperarPass.setOnClickListener(this);
+        recuperarPass.setVisibility(View.INVISIBLE);
 
         login.setEnabled(false);//boton desactivado
         cargarPreferencias();
 
-
+        for (int i = 0; i < usuarios.size(); i ++){
+            Toast.makeText(this, "m: "+usuarios.get(i).usuario.toString(), Toast.LENGTH_SHORT).show();
+        }
+        for (int i = 0; i < usuarios.size(); i ++){
+            Toast.makeText(this, "m: "+usuarios.get(i).password.toString(), Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -52,6 +70,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.btnLogin:
 
+                String nombre = usuario.getText().toString();
+                String contra = clave.getText().toString();
+                Usuarios user = new Usuarios(nombre,contra);
+
+                //validamos si el usuario existe
+               if(usuarios.contains(user)){
+                    if(recordar.isChecked()==true){
+                        guardarPreferencias();
+                    }
+                    Intent i = new Intent(this,HomeActivity.class);
+                    i.putExtra("usuario",user.usuario);
+                    startActivity(i);
+               }
+               else{
+                    Toast.makeText(getApplicationContext(),"Error Credenciales",Toast.LENGTH_LONG).show();
+                    recuperarPass.setVisibility(View.VISIBLE);
+                }
+
+                /*
                 if(User1()){
                     Toast.makeText(getApplicationContext(),"User 1" + usuario.getText().toString(),Toast.LENGTH_LONG).show();
                     Intent i =new Intent(getApplicationContext(),HomeActivity.class);
@@ -73,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 else{
                     Toast.makeText(getApplicationContext(),"Error credenciales",Toast.LENGTH_LONG).show();
                 }
-
+                */
                 break;
 
             case R.id.btnRegistro:
@@ -158,11 +195,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public  void cargarPreferencias(){
         SharedPreferences preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
-        String user = preferences.getString("user","no hay nada");
-        String pass = preferences.getString("pass","no perra");
+        String user = preferences.getString("user","");
+        String pass = preferences.getString("pass","");
 
         usuario.setText(user);
+        //usuario.setHint(""+user);
         clave.setText(pass);
+    }
+
+    public void usuariosIniciales(){
+        if(control == false){
+            usuarios.add(0,new Usuarios("jhonier","jimenez","example1@gmail.com","123456"));
+            usuarios.add(1,new Usuarios("erwin","cacua","example2@gmail.com","123456","hombre"));
+            usuarios.add(2,new Usuarios("javier","de az","example3@gmail.com","123456","hombre"));
+            control=true;
+        }
+
     }
 
 
