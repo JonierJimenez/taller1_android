@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         login.setEnabled(false);//boton desactivado
         cargarPreferencias();
 
-       /* for (int i = 0; i < usuarios.size(); i ++){
+       /*for (int i = 0; i < usuarios.size(); i ++){
             Toast.makeText(this, "m: "+usuarios.get(i).usuario.toString(), Toast.LENGTH_SHORT).show();
         }
         for (int i = 0; i < usuarios.size(); i ++){
@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        Intent i;
         switch (v.getId()){
             case R.id.btnLogin:
 
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if(recordar.isChecked()==true){
                         guardarPreferencias();
                     }
-                    Intent i = new Intent(this,HomeActivity.class);
+                    i = new Intent(this,HomeActivity.class);
                     i.putExtra("usuario",user.usuario);
                     startActivity(i);
                }
@@ -87,34 +88,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(getApplicationContext(),"Error Credenciales",Toast.LENGTH_LONG).show();
                     recuperarPass.setVisibility(View.VISIBLE);
                 }
-
-                /*
-                if(User1()){
-                    Toast.makeText(getApplicationContext(),"User 1" + usuario.getText().toString(),Toast.LENGTH_LONG).show();
-                    Intent i =new Intent(getApplicationContext(),HomeActivity.class);
-                    startActivity(i);
-                    finish();
-                }
-                else if(User2()){
-                    Toast.makeText(getApplicationContext(),"User 2"+ usuario.getText().toString(),Toast.LENGTH_LONG).show();
-                    Intent i =new Intent(getApplicationContext(),HomeActivity.class);
-                    startActivity(i);
-                    finish();
-                }
-                else if(User3()){
-                    Toast.makeText(getApplicationContext(),"User 3"+  usuario.getText().toString(),Toast.LENGTH_LONG).show();
-                    Intent i =new Intent(getApplicationContext(),HomeActivity.class);
-                    startActivity(i);
-                    finish();
-                }
-                else{
-                    Toast.makeText(getApplicationContext(),"Error credenciales",Toast.LENGTH_LONG).show();
-                }
-                */
                 break;
 
             case R.id.btnRegistro:
-                Intent i = new Intent(getApplicationContext(),RegistroActivity.class);
+                i = new Intent(getApplicationContext(),RegistroActivity.class);
                 startActivity(i);
                 if (termycon.isChecked()){
                     login.setEnabled(true);
@@ -131,6 +108,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.idCheckR:
                 guardarPreferencias();
+                break;
+
+            case R.id.btnRecuperarPass:
+                i = new Intent(getApplicationContext(),ContrasenaActivity.class);
+                startActivity(i);
+                break;
         }
     }
 
