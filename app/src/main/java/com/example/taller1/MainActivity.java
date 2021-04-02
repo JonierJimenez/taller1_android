@@ -121,48 +121,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return true;
     }
 
-    public boolean User1(){
-        if(usuario.getText().toString().equalsIgnoreCase("erwin") && clave.getText().toString().equalsIgnoreCase("12345")) {
-
-            Toast.makeText(getApplicationContext(),"en hora buena",Toast.LENGTH_SHORT).show();
-            return true;
-
-        }else{
-            return false;
-        }
-
-    }
-
-    public boolean User2(){
-        if(usuario.getText().toString().equalsIgnoreCase("jhonier") && clave.getText().toString().equalsIgnoreCase("2207")) {
-            return true;
-
-        }else{
-            return false;
-        }
-
-    }
-
-    public boolean User3(){
-        if(usuario.getText().toString().equalsIgnoreCase("admin") && clave.getText().toString().equalsIgnoreCase("12345")) {
-
-
-            return true;
-
-        }else{
-            if(usuario.getText().toString().equalsIgnoreCase("javier") && clave.getText().toString().equalsIgnoreCase("123")) {
-
-
-                return true;
-
-            }else{
-                return false;
-            }
-
-        }
-
-    }
-
     public void guardarPreferencias(){
         SharedPreferences preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
 
@@ -188,9 +146,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void usuariosIniciales(){
         if(control == false){
-            usuarios.add(0,new Usuarios("jhonier","jimenez","example1@gmail.com","123456"));
-            usuarios.add(1,new Usuarios("erwin","cacua","example2@gmail.com","123456","hombre"));
-            usuarios.add(2,new Usuarios("javier","de az","example3@gmail.com","123456","hombre"));
+            usuarios.add(0,new Usuarios("jhonier","jimenez","ejemplo1@gmail.com","123456"));
+            usuarios.add(1,new Usuarios("erwin","cacua","ejemplo2@gmail.com","123456","hombre"));
+            usuarios.add(2,new Usuarios("javier","de az","ejemplo3@gmail.com","123456","hombre"));
             control=true;
         }
 
